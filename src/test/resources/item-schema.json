@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "title": "Root Schema",
+  "type": "object",
+  "default": {},
+  "required": [
+    "id",
+    "deleted",
+    "create_date",
+    "name",
+    "price",
+    "currency",
+    "price_for_quantity",
+    "quantity_unit",
+    "is_limited",
+    "catalog_number",
+    "outside_id"
+  ],
+  "properties": {
+    "id": {
+      "title": "The id Schema",
+      "type": "integer",
+      "default": 0
+    },
+    "deleted": {
+      "title": "The deleted Schema",
+      "type": "boolean",
+      "default": false
+    },
+    "create_date": {
+      "title": "The create_date Schema",
+      "type": "string",
+      "default": ""
+    },
+    "name": {
+      "title": "The name Schema",
+      "type": "string",
+      "default": ""
+    },
+    "price": {
+      "title": "The price Schema",
+      "type": "integer",
+      "default": 0
+    },
+    "currency": {
+      "title": "The currency Schema",
+      "type": "string",
+      "default": ""
+    },
+    "price_for_quantity": {
+      "title": "The price_for_quantity Schema",
+      "type": "integer",
+      "default": 0
+    },
+    "quantity_unit": {
+      "title": "The quantity_unit Schema",
+      "type": "string",
+      "default": ""
+    },
+    "is_limited": {
+      "title": "The is_limited Schema",
+      "type": "boolean",
+      "default": false
+    },
+    "catalog_number": {
+      "title": "The catalog_number Schema",
+      "type": "null",
+      "default": null
+    },
+    "outside_id": {
+      "title": "The outside_id Schema",
+      "type": "null",
+      "default": null
+    }
+  }
+}
