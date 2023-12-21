@@ -15,46 +15,51 @@ public class ClientAPI extends Request {
 
     /**
      * Create new client
+     *
      * @param client client information
      * @return Response
      */
-    public Response createClient(Client client){
+    public Response createClient(Client client) {
         return post(ENDPOINT, GSON.toJson(client));
     }
 
     /**
      * Retrieves client by id
+     *
      * @param id id of the client
      * @return Response
      */
-    public Response getClient(int id){
+    public Response getClient(int id) {
         return get(SINGLE_ENDPOINT, id);
     }
 
     /**
      * Retrieves all clients
+     *
      * @return Response
      */
-    public Response getClients(){
+    public Response getClients() {
         return get(ENDPOINT);
     }
 
     /**
      * Deletes single client
+     *
      * @param id id of the client
      * @return Response
      */
-    public Response deleteClient(int id){
+    public Response deleteClient(int id) {
         return delete(SINGLE_ENDPOINT, id);
     }
 
     /**
      * Updates single client
-     * @param id id of the client
+     *
+     * @param id     id of the client
      * @param client client information
      * @return Response
      */
-    public Response updateClient(int id, Client client){
+    public Response updateClient(int id, Client client) {
         return patch(SINGLE_ENDPOINT, id, GSON.toJson(client));
     }
 }

@@ -1,8 +1,6 @@
 package api.v2;
 
 import api.endpoints.ItemAPI;
-import api.endpoints.LoginAPI;
-import io.restassured.RestAssured;
 import io.restassured.authentication.PreemptiveBasicAuthScheme;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
@@ -16,7 +14,7 @@ public class BaseAPITestV2 {
     protected ItemAPI itemAPI;
 
     @BeforeAll
-    public void beforeAll(){
+    public void beforeAll() {
         //Basic auth base64 encoded string from (username:password)
         //Header: Authorization | Basic encoded string
         PreemptiveBasicAuthScheme basicAuthScheme = new PreemptiveBasicAuthScheme();

@@ -55,10 +55,10 @@ public class ItemAPITest extends BaseAPITest {
     }
 
     @Test
-    @Disabled
+    @Disabled //This is not implemented
     @DisplayName("Can update item")
     @Tag("api")
-    @Issue("This endpoint is not implemented")
+    @Issue("IN-70")
     @Description("Authenticated users can update existing items")
     public void canUpdateItem() {
         //Create item dto

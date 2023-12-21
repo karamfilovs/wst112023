@@ -11,7 +11,7 @@ public class ItemAPIV2Test extends BaseAPITestV2 {
     @Test
     @DisplayName("Can get all items using v2 of the api")
     @Description("User can get items using older version of the API")
-    public void canGetAllItems(){
+    public void canGetAllItems() {
         Response response = itemAPI.getItems();
         Assertions.assertEquals(200, response.statusCode());
     }

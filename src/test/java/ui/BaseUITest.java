@@ -5,7 +5,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import ui.core.WebApp;
 
 public class BaseUITest extends BaseAPITest {
@@ -14,7 +13,6 @@ public class BaseUITest extends BaseAPITest {
 
     @BeforeEach
     public void beforeEach() {
-        ChromeOptions chromeOptions = new ChromeOptions();
         driver = new ChromeDriver(); //Creates new chrome instance
         webApp = new WebApp(driver);
     }

@@ -17,10 +17,11 @@ public class LoginAPI extends Request {
 
     /**
      * Obtains new token for the inv.bg api
+     *
      * @return token as string
      */
     @Step("Obtain token")
-    public String obtainToken(Login login){
+    public String obtainToken(Login login) {
         Response response = post(ENDPOINT, GSON.toJson(login));
         //return response.then().extract().jsonPath().get("token"); //This extracts the token. Doing the same thing like the next line but more verbose
         return response.jsonPath().get("token");

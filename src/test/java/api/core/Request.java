@@ -19,7 +19,7 @@ public abstract class Request {
             .setPrettyPrinting()
             .create();
 
-    public Request (String baseUri, String basePath, AuthenticationScheme scheme){
+    public Request(String baseUri, String basePath, AuthenticationScheme scheme) {
         this.baseUri = baseUri;
         this.basePath = basePath;
         this.scheme = scheme;
@@ -27,7 +27,8 @@ public abstract class Request {
 
     /**
      * Sends HTTP Post request
-     * @param url endpoint url for the request
+     *
+     * @param url  endpoint url for the request
      * @param body body for the request
      * @return Response
      */
@@ -40,7 +41,8 @@ public abstract class Request {
 
     /**
      * Sends HTTP PUT request
-     * @param url endpoint url for the request
+     *
+     * @param url  endpoint url for the request
      * @param body body of the request
      * @return Response
      */
@@ -50,7 +52,7 @@ public abstract class Request {
                 .put(url);
     }
 
-    protected Response put(String url, int id,  String body) {
+    protected Response put(String url, int id, String body) {
         return baseRequest()
                 .pathParam("id", String.valueOf(id))
                 .body(body)
@@ -59,6 +61,7 @@ public abstract class Request {
 
     /**
      * Sends HTTP DELETE request
+     *
      * @param url endpoint url
      * @return Response
      */
@@ -76,6 +79,7 @@ public abstract class Request {
 
     /**
      * Sends GET request
+     *
      * @param url endpoint url for the request
      * @return Response
      */
@@ -92,7 +96,8 @@ public abstract class Request {
 
     /**
      * Sends PATCH request
-     * @param url url for the request
+     *
+     * @param url  url for the request
      * @param body body for the request
      * @return Response
      */
@@ -113,9 +118,10 @@ public abstract class Request {
 
     /**
      * This is the base request builder
+     *
      * @return RequestSpecification
      */
-    private RequestSpecification baseRequest(){
+    private RequestSpecification baseRequest() {
         RestAssured.reset(); //Restore default state
         RestAssured.authentication = scheme; //This line sets the auth scheme for the api
         return RestAssured.given()

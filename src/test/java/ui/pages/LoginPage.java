@@ -20,13 +20,14 @@ public class LoginPage extends BasePage {
     /**
      * Opens the Login page
      */
-    public void open(){
+    public void open() {
         open(URL);
     }
 
     /**
      * Performs login with username and password
-     * @param email valid email
+     *
+     * @param email    valid email
      * @param password valid password
      */
     public void login(String email, String password) {
@@ -52,20 +53,21 @@ public class LoginPage extends BasePage {
 
     /**
      * Retrieves the page main heading
+     *
      * @return String
      */
-    public String getMainHeading(){
+    public String getMainHeading() {
         return getText(headingLocator);
     }
 
-    public String getLogoutMessage(){
+    public String getLogoutMessage() {
         return getText(logoutMessageLocator);
     }
 
     /**
      * Clicks forgotten password link
      */
-    public LoginPage clickResetPassword(){
+    public LoginPage clickResetPassword() {
         click(forgottenPasswordLink, "Forgotten password link");
         return this;
     }

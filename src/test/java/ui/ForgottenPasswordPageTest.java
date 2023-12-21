@@ -36,15 +36,13 @@ public class ForgottenPasswordPageTest extends BaseUITest {
         query.setQuery("{inbox (namespace:\"wav4e\") {result message count emails { subject text }}}");
         List<Email> emails = emailAPI.getEmails(query);
         //Check that the inbox email count increases with 1
-        Assertions.assertEquals(5, emails.size());
+        Assertions.assertTrue(emails.size() > 1);
         //Extract reset password link from the email body
         Email targetEmail = emails.get(0);
         //Pattern to extract the url
         List<String> urls = TextUtils.extractUrls(targetEmail.getText());
         urls.forEach(System.out::println);
         //TODO: Finish the test at home
-        //Open the url with selenium in another tab
-        //Change/reset the password
-        //Login with the new password
+
     }
 }

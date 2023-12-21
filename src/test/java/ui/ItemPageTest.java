@@ -4,21 +4,18 @@ import io.qameta.allure.Description;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import ui.core.WebApp;
-import ui.pages.HomePage;
-import ui.pages.LoginPage;
 
 public class ItemPageTest {
     private WebDriver driver;
 
     @BeforeEach
-    public void beforeEach(){
+    public void beforeEach() {
         driver = new ChromeDriver(); //Creates new chrome instance
     }
 
     @AfterEach
-    public void afterEach(){
-        if (driver != null){
+    public void afterEach() {
+        if (driver != null) {
             driver.quit(); //Kills browser
         }
     }
@@ -27,7 +24,7 @@ public class ItemPageTest {
     @DisplayName("System returns message when there are no items added")
     @Tag("ui")
     @Description("Specific message is displayed when 0 items exist")
-    public void specificMessageIsDisplayedWhenZeroItemsExist(){
+    public void specificMessageIsDisplayedWhenZeroItemsExist() {
         //TODO: Implement all the steps bellow (Homework)
         /**
          * 1. Login in the system

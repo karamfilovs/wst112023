@@ -12,13 +12,13 @@ public class LoginTest {
     private WebDriver driver;
 
     @BeforeEach
-    public void beforeEach(){
+    public void beforeEach() {
         driver = new ChromeDriver(); //Creates new chrome instance
     }
 
     @AfterEach
-    public void afterEach(){
-        if (driver != null){
+    public void afterEach() {
+        if (driver != null) {
             driver.quit(); //Kills browser
         }
     }
@@ -27,7 +27,7 @@ public class LoginTest {
     @DisplayName("Can login with valid credentials")
     @Tag("ui")
     @Description("Users with valid credentials can login")
-    public void canLoginWithValidCredentials(){
+    public void canLoginWithValidCredentials() {
         driver.get(Constants.BASE_URI);
         WebElement heading = driver.findElement(By.xpath("//h1"));
         Assertions.assertEquals("Вход в inv.bg", heading.getText());
