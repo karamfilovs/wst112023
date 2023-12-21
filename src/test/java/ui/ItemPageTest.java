@@ -6,19 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ItemPageTest {
-    private WebDriver driver;
-
-    @BeforeEach
-    public void beforeEach() {
-        driver = new ChromeDriver(); //Creates new chrome instance
-    }
-
-    @AfterEach
-    public void afterEach() {
-        if (driver != null) {
-            driver.quit(); //Kills browser
-        }
-    }
 
     @Test
     @DisplayName("System returns message when there are no items added")
@@ -38,7 +25,6 @@ public class ItemPageTest {
          *
          *
          */
-
 
     }
 

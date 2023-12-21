@@ -9,36 +9,22 @@ import ui.core.WebApp;
 import ui.pages.HomePage;
 import ui.pages.LoginPage;
 
-public class LoginPageTest {
-    private WebDriver driver;
+public class LoginPageTest extends BaseUITest {
 
-    @BeforeEach
-    public void beforeEach() {
-        driver = new ChromeDriver(); //Creates new chrome instance
-    }
-
-    @AfterEach
-    public void afterEach() {
-        if (driver != null) {
-            driver.quit(); //Kills browser
-        }
-    }
 
     @Test
     @DisplayName("Can login with valid credentials")
     @Tag("ui")
     @Description("Users with valid credentials can login")
     public void canLoginWithValidCredentials() {
-        LoginPage loginPage = new LoginPage(driver);
         //Navigate to the Login page
-        loginPage.open();
+        webApp.loginPage().open();
         //Check that navigation was successful
-        Assertions.assertEquals("Вход в inv.bg", loginPage.getMainHeading());
+        Assertions.assertEquals("Вход в inv.bg", webApp.loginPage().getMainHeading());
         //Log in
-        loginPage.login(Constants.EMAIL, Constants.PASSWORD);
+        webApp.loginPage().login(Constants.EMAIL, Constants.PASSWORD);
         //Check that user is logged in
-        HomePage homePage = new HomePage(driver);
-        String panelHeader = homePage.getUserPanelHeader();
+        String panelHeader = webApp.homePage().getUserPanelHeader();
         Assertions.assertEquals(Constants.EMAIL, panelHeader);
     }
 
@@ -47,7 +33,6 @@ public class LoginPageTest {
     @Tag("ui")
     @Description("Users with active session can logout successfully")
     public void canLogout() {
-        WebApp webApp = new WebApp(driver);
         //Navigate to the Login page
         webApp.loginPage().open();
         //Check that navigation was successful

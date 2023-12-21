@@ -15,5 +15,8 @@ public interface Constants {
     String TEST_MAIL_TOKEN = System.getProperty("testMailToken", "eb6c6d8f-2d2c-48f5-8e28-49a1c3d3be5d");
     String TEST_MAIL_BASE_PATH = System.getProperty("testMailBasePath", "/api");
 
+    //Browser control
+    boolean HEADLESS = Boolean.parseBoolean(System.getProperty("headless", "false"));
+
 
 }
