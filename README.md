@@ -15,3 +15,6 @@ mvn clean test -Dgroups=api
 ```shell
 mvn clean test -Dgroups=ui
 ```
+
+## Allure report
+![Report withs screenshot](img.png)
