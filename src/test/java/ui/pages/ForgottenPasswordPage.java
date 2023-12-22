@@ -48,8 +48,8 @@ public class ForgottenPasswordPage extends BasePage {
      * @param newPassword new password
      */
     public void setNewPassword(String newPassword){
-        type(passwordFieldLocator, "password");
-        type(password2FieldLocator, "password");
+        type(passwordFieldLocator, newPassword);
+        type(password2FieldLocator, newPassword);
         click(submitNewPasswordLocator, "submit new password");
     }
 }
