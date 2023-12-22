@@ -17,4 +17,4 @@ mvn clean test -Dgroups=ui
 ```
 
 ## Allure report
-![Report withs screenshot](img.png)
+![Report with screenshot](img.png)
