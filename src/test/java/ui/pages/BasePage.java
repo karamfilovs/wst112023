@@ -4,8 +4,11 @@ import config.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Set;
 
 public class BasePage {
     private WebDriver driver;
@@ -45,5 +48,22 @@ public class BasePage {
         return pageTitle;
     }
 
+    public void openNewTab(){
+        driver.switchTo().newWindow(WindowType.TAB);
+    }
+
+    public void openExternalPage(String url){
+        driver.get(url);
+    }
+
+    public void closeTab(){
+        driver.close();
+    }
+
+    public void switchToActiveWindow(){
+        Set<String> windowHandles = driver.getWindowHandles();
+        System.out.println(windowHandles.toString());
+        driver.switchTo().window(windowHandles.stream().findFirst().get());
+    }
 
 }

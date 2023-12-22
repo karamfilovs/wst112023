@@ -42,4 +42,14 @@ public class ForgottenPasswordPage extends BasePage {
     public String getSuccessMessage(){
         return getText(successMessage);
     }
+
+    /**
+     * Resets password
+     * @param newPassword new password
+     */
+    public void setNewPassword(String newPassword){
+        type(passwordFieldLocator, "password");
+        type(password2FieldLocator, "password");
+        click(submitNewPasswordLocator, "submit new password");
+    }
 }

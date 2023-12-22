@@ -19,7 +19,11 @@ public class ForgottenPasswordPageTest extends BaseUITest {
     @Tag("ui")
     @DisplayName("Can reset password")
     @Description("Existing  users can restore password via email")
-    public void canRestorePassword() throws InterruptedException {
+    public void canRestorePassword() {
+        GraphQuery query = new GraphQuery();
+        query.setQuery("{inbox (namespace:\"wav4e\") {result message count emails { subject text }}}");
+        int currentCount = emailAPI.getInbox(query).getCount();
+
         String successMessage = "На e-mail адреса Ви беше изпратен линк, чрез който можете да смените паролата си.";
         webApp.loginPage().open();
         Assertions.assertEquals("Вход в inv.bg", webApp.loginPage().getMainHeading());
@@ -30,19 +34,23 @@ public class ForgottenPasswordPageTest extends BaseUITest {
         //Check success message
         Assertions.assertEquals(successMessage, webApp.forgottenPasswordPage().getSuccessMessage());
         //Wait for the email to arrive
-        Thread.sleep(6000);
+        emailAPI.waitForEmailToArrive(currentCount);
         //Check email (api/ui)
-        GraphQuery query = new GraphQuery();
-        query.setQuery("{inbox (namespace:\"wav4e\") {result message count emails { subject text }}}");
-        List<Email> emails = emailAPI.getEmails(query);
         //Check that the inbox email count increases with 1
-        Assertions.assertTrue(emails.size() > 1);
+        Assertions.assertEquals(currentCount + 1, emailAPI.getInbox(query).getCount());
         //Extract reset password link from the email body
-        Email targetEmail = emails.get(0);
+        Email targetEmail = emailAPI.getInbox(query).getEmails().get(0);
         //Pattern to extract the url
         List<String> urls = TextUtils.extractUrls(targetEmail.getText());
         urls.forEach(System.out::println);
         //TODO: Finish the test at home
+        webApp.forgottenPasswordPage().openNewTab();
+        webApp.forgottenPasswordPage().openExternalPage(urls.get(0)); //Open reset password link with the id
+        webApp.forgottenPasswordPage().setNewPassword("123123123");
+        webApp.forgottenPasswordPage().closeTab();
+        webApp.forgottenPasswordPage().switchToActiveWindow();
+        webApp.loginPage().open();
+        webApp.loginPage().login(Constants.RESTORE_EMAIL, "123123123");
 
     }
 }

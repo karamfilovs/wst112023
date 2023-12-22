@@ -3,6 +3,7 @@ package api;
 import api.v3.BaseAPITest;
 import graphql.Email;
 import graphql.GraphQuery;
+import graphql.Inbox;
 import io.qameta.allure.Description;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
@@ -19,9 +20,9 @@ public class EmailAPITest extends BaseAPITest {
     public void canGetEmails(){
         GraphQuery query = new GraphQuery();
         query.setQuery("{inbox (namespace:\"wav4e\") {result message count emails { subject text }}}");
-        List<Email> emails = emailAPI.getEmails(query);
-        Assertions.assertEquals(2, emails.size());
-        System.out.println("Target email body:\n" + emails.get(0).getText());
+        Inbox inbox = emailAPI.getInbox(query);
+        Assertions.assertEquals(18, inbox.getCount());
+        System.out.println("Target email body:\n" + inbox.getEmails().get(0).getText());
     }
 
     @Test
