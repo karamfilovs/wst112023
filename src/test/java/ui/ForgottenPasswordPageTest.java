@@ -46,11 +46,13 @@ public class ForgottenPasswordPageTest extends BaseUITest {
         //TODO: Finish the test at home
         webApp.forgottenPasswordPage().openNewTab();
         webApp.forgottenPasswordPage().openExternalPage(urls.get(0)); //Open reset password link with the id
-        webApp.forgottenPasswordPage().setNewPassword("123123123");
+        String newPassword = "Test2023";
+        webApp.forgottenPasswordPage().setNewPassword(newPassword);
         webApp.forgottenPasswordPage().closeTab();
         webApp.forgottenPasswordPage().switchToActiveWindow();
         webApp.loginPage().open();
-        webApp.loginPage().login(Constants.RESTORE_EMAIL, "123123123");
+        webApp.loginPage().login(Constants.RESTORE_EMAIL, newPassword);
+        Assertions.assertEquals(Constants.RESTORE_EMAIL, webApp.homePage().getUserPanelHeader());
 
     }
 }

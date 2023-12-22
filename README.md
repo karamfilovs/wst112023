@@ -8,5 +8,10 @@
 
 ## Executing all rest tests with default configuration
 ```shell
-mvn clean test
+mvn clean test -Dgroups=api
+```
+
+## Executing all UI tests with default configuration
+```shell
+mvn clean test -Dgroups=ui
 ```
